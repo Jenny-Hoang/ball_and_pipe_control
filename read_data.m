@@ -20,7 +20,7 @@ write(device,"s","string");
 data = read(device,20,"string");
 %% Translate
 distance   = str2double(extractBetween(data,2,5));
-manual_pwm = str2double(extractBetween(data,7,10));
+pwm = str2double(extractBetween(data,7,10));
 target     = str2double(extractBetween(data,12,15));
 deadpan    = str2double(extractBetween(data,17,20));
 
