@@ -23,11 +23,5 @@ if (ir <= ir_top)
     ir = ir_top;
 end
 %% Set
-<<<<<<< HEAD
 pipe_percentage =  1 - ((ir-ir_top)/(ir_bottom-ir_top));   %ir=0.351
 y = pipe_percentage*y_top;
-=======
-% pipe_percentage = 
-% y = 
-% this file has been edited
->>>>>>> f4616cf178257ec35b3580500b6bb5d585d0a35f
