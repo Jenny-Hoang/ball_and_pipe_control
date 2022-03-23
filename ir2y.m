@@ -19,6 +19,6 @@ y_top     = 0.9144; % Ball at top of the pipe [m]
 % (remeber the IR values are inverted ie small values == large height and large values == small height)
 
 %% Set
-% pipe_percentage = 
+% pipe_percentage =  
 % y = 
 % this file has been edited
