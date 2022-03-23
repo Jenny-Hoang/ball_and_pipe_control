@@ -6,11 +6,12 @@
 % Modified by YOUR NAME AND DATE
 
 %% Start fresh
-close all; clc; clear device;
+close all; clc;
 
 %% Connect to device
-% device = open serial communication in the proper COM port
-s = serialport(COM10,19200)
+clear device;
+device = serialport('COM3',19200);
+
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
 sample_rate = 0.25;  % Amount of time between controll actions [s]
@@ -18,7 +19,7 @@ sample_rate = 0.25;  % Amount of time between controll actions [s]
 %% Give an initial burst to lift ball and keep in air
 % set_pwm(add_proper_args); % Initial burst to pick up ball
 pause(0.1) % Wait 0.1 seconds
-% set_pwm(add_proper_args); % Set to lesser value to level out somewhere in
+set_pwm('P3000'); % Set to lesser value to level out somewhere in
 % the pipe
 
 %% Initialize variables
