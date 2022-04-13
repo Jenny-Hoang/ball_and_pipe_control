@@ -29,13 +29,59 @@
   </ol>
 </details>
 
+MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
 
+## Notes:
+1. device manager
+  check what com port it is on
+  PuTTY 
+      19200 Speed
+      Possibly COM3 --> Serial 
+2. run the section "device" in "real world" to connect the device and to input that into MATLABs workspace.
+(In 'set_pwm'??)
+3. in the command window put:
+      action = set_pwm (device,3000)
+This will allow the ball to move up and down the pipe
+4. keep changing the pwm to get the different state values 
+  MATLAB will give values of d,p,t,h
+    d is the distance from the top of the sensor (cm or mm)
+    p
+    t
+    h
+4. Using Putty??
+    p200
+    press 's' to read the value
+    
+6. s
+  
+
+
+get the different values such as the height and the velocity of the ball from the ball and pipe system
+the different values are received from using 
+read data and the set_pwm and real world code 
+
+then that gets put into the q-algorithim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
 vtp
 velocity of the ball
 target is height
 position of the ball
 
-MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
+
 
 
 # Theory of Control Method
@@ -44,23 +90,6 @@ Control Method chosen was the **Q-Learning** which is a type of reinforcement le
 ### Q-Table
     
 
-## Notes:
-device manager
-  check what com port it is on
-  
-  
-run in "real world" to connect the device section
-in set pwm
-  action = set_pwm (device,3000)
-This will allow the ball to move up and down the pipe
-
-
-
-get the different values such as the height and the velocity of the ball from the ball and pipe system
-the different values are received from using 
-read data and the set_pwm and real world code 
-
-then that gets put into the q-algorithim
 
   
 
