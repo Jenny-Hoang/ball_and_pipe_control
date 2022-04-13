@@ -32,28 +32,40 @@
 MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
 
 ## Notes:
-1. device manager
-  check what com port it is on
-  PuTTY 
-      19200 Speed
-      Possibly COM3 --> Serial 
-2. run the section "device" in "real world" to connect the device and to input that into MATLABs workspace.
+1. device manager<br/>
+  check what com port it is on (Possibly COM3)<br/> 
+  PuTTY <br/>
+      *Port: COM3<br/>
+      *Speed: 19200 Speed<br/>
+      *Click on "Serial" bubble
+     
+2. Pull the codes down from GITHUB
+
+3. run the section "device" in "real_world.m" to connect the device and to input that into MATLABs workspace.
 (In 'set_pwm'??)
-3. in the command window put:
+4. in the command window put:
       action = set_pwm (device,3000)
 This will allow the ball to move up and down the pipe
-4. keep changing the pwm to get the different state values 
+5. keep changing the pwm to get the different state values 
   MATLAB will give values of d,p,t,h
     d is the distance from the top of the sensor (cm or mm)
     p
     t
     h
-4. Using Putty??
+5. Using Putty??
     p200
     press 's' to read the value
     
 6. s
   
+time step is from
+
+realword --> sample rate
+target (just make one)
+0 bottom
+0.5 ball in the middle
+
+reward is open ended to how we set it up
 
 
 get the different values such as the height and the velocity of the ball from the ball and pipe system
@@ -106,8 +118,10 @@ To control the ball and pipe system 4 different files were used:<br/>
 #### ir2y code
 
 #### read_data code
+*
 
 #### real_world code
+Chang the COM Port if neccessary under "Connect to Device"
 
 #### set_pwm code
 
