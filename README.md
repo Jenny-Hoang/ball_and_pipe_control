@@ -30,7 +30,10 @@
 </details>
 
 
-
+vtp
+velocity of the ball
+target is height
+position of the ball
 
 MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
 
@@ -41,15 +44,36 @@ Control Method chosen was the **Q-Learning** which is a type of reinforcement le
 ### Q-Table
     
 
+## Notes:
+device manager
+  check what com port it is on
+  
+  
+run in "real world" to connect the device section
+in set pwm
+  action = set_pwm (device,3000)
+This will allow the ball to move up and down the pipe
 
 
+
+get the different values such as the height and the velocity of the ball from the ball and pipe system
+the different values are received from using 
+read data and the set_pwm and real world code 
+
+then that gets put into the q-algorithim
+
+  
 
 # Guide to Use the Code
+[q_algorithim](https://github.com/Jenny-Hoang/ball_and_pipe_control/commit/795b4836eecb71e963c6cdd3a1d1df821d32a5ec)
 To control the ball and pipe system 4 different files were used:<br/>
 [ir2y.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/ir2y.m)
 , [read_data.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/read_data.m)
 , [real_world.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 , [set_pwm.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
+
+#### q-algorithim
+
 #### ir2y code
 
 #### read_data code
