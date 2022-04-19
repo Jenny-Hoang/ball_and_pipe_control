@@ -45,21 +45,27 @@ position of the ball
 # Theory of Control Method
 Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximuze the value of Q by using a Q-table to find the best solution.<br/>
 **Some important terms:** <br/>
-*Agents* - This is the BLANK. In this project the Agent is
+*Agents* - This is the entity that will explore the environment and makes decisions according to the Q-Table. In this project the Agent is the ball.
 <br/>
 
-*State* - This is where the location of where the object is at. In this project, the pipe is divided into sections and in each section there are 2 subsections which is the state.
+*State* - This is where the location of where the object is at. In this project, the pipe is divided into 5 sections and in each section there are 2 subsections which is the state.
 <br/>
 
-*Action* - 
+*Action* - Depending on the state it is in, a specific action will be made.
 <br/>
 
-*Rewards* - 
+*Rewards* - Depending on the state it is in, it will lead to a positive or negative reward.
 <br/>
 
-*Environment* - 
+*Environment* - The system in which the agent will explore.
 <br/>
 
+The order of the Q-Learning Algorithm Process:
+1. Initialize Q-Table
+2. Choose an Action
+3. Perform and Action
+4. Measure Reward
+5. Update Q-Table
 
 
 ### Q-Table
@@ -146,6 +152,9 @@ the different values are received from using
 read data and the set_pwm and real world code 
 
 then that gets put into the q-algorithim
+
+
+# Next Steps
 
 
 
