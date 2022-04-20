@@ -69,12 +69,13 @@ The order of the Q-Learning Algorithm Process:
 
 
 ### Q-Table
-    
+   (maybe add a picture somehow?) 
 
 
   
 
 # Guide to Use the Code
+Floating Ball Apparatus Spec Sheet- [Spec Sheet](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/SCFBA%20Specification%20Sheet.pdf)<br/>
 [q_algorithim](https://github.com/Jenny-Hoang/ball_and_pipe_control/commit/795b4836eecb71e963c6cdd3a1d1df821d32a5ec) <br/>
 To control the ball and pipe system 4 different files were used:<br/>
 [ir2y.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/ir2y.m)
@@ -83,14 +84,23 @@ To control the ball and pipe system 4 different files were used:<br/>
 , [set_pwm.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 
 #### q-algorithim
+Built from scratch and has multiple parts
 
 #### ir2y code
+* Added the parameters (ir_bottom and ir_top) values 
+* Added the portion under "Bound the IR reading and send error message" and under "Set"
 
 #### read_data code
-*
+
+Created using the spec sheet (page 8)
+
+<!-- distance skip : 2345
+pwm skip 6(,) 78910
+k
+ -->
 
 #### real_world code
-Chang the COM Port if neccessary under "Connect to Device"
+Change the COM Port if neccessary under "Connect to Device"
 
 #### set_pwm code
 
