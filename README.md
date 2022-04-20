@@ -92,7 +92,10 @@ Built from scratch and has multiple parts
 
 #### read_data code
 
-Created using the spec sheet (page 8)
+* Ask and take data from device as a string value
+* Turn data from a string to a double and then extract the data for the different values
+* All the data is seperated by a special character so extracting the value for each value is easy
+* This gives us the value of the distance, pwm, deadpan, and target
 
 <!-- distance skip : 2345
 pwm skip 6(,) 78910
