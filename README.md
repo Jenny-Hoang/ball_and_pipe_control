@@ -103,10 +103,10 @@ k
  -->
 
 #### real_world code
-Change the COM Port if neccessary under "Connect to Device"
+It is important to run some of the section in real world to be able to control the ball and pipe system manually. First, using device manager, find out to which port the console USB of the ball and pipe is connected to. This information is used in the section titled "Connect to device". The variable device takes in two parameters, the COM port, string that console USB is connected to, and the baud rate which should be set as 19200 per the spec sheet. Furthermore, give an initial burst between 2000 and 4000 which will start the ball and pipe and one can change it throught the set_pwm command. The feedback loop section is where the q-algorithm would go which would give certain PWM values in relation to what state the agent finds itself or in this case the ping-pong ball.
 
 #### set_pwm code
-Type the command set_pwm(device,pwm_value) in the command window. In the real_world code, the device is set to serialport('COM3',19200). Change the COM3 to the correct COM on your device. This command will control the pwm based on the input value of pwm_value that is chosen.  
+This code gives the PWM value set as string for action to send it to the ball and pip system per the spec sheet. The first step in taking this code was to first bin the PW values to make sure that values between 0 and 4095 were being inserted into the system. This then assures that an value inserted above 4095 is bounded to 4095 and any value inserted below 0 is bounded to 0. After this is complete, one then need to format the PWM values in order to send said values to the system. This is done first using the sprintf command that writes formatted data to a string or character vectors which in this as is characters. It is then desired to 0 pad the PWM values four zeros after the decimal point. Since the system takes in the format 'PXXXX' the character P will be concatenated with the PWM value. This code cna then be ra in the command window using 'set_pwm(device,#)' which will allow you send pwm vlaues to control the ball and pipe system. 
 
 #### Functions in Q-algorithm
 1. Binned State Function 
