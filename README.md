@@ -61,11 +61,13 @@ Control Method chosen was the **Q-Learning** which is a type of reinforcement le
 <br/>
 
 The order of the Q-Learning Algorithm Process:
-1. Initialize Q-Table
-2. Choose an Action
-3. Perform and Action
-4. Measure Reward
-5. Update Q-Table
+1. Initialize Q-Table 
+Generate the Q-table using the Bellman Equation with the reward of 10 at terminal state and  -1 for other state. The learning rate adn discount fator value was range from 0 to 1. The Q-table will have the index value correspond with the values of t_bins, v_pins, and p_pins. 
+3. Choose an Action
+After obtaining the index value of the Q-table, the
+5. Perform and Action
+6. Measure Reward
+7. Update Q-Table
 
 
 ### Q-Table
