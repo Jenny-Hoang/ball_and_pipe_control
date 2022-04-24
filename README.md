@@ -75,8 +75,11 @@ The order of the Q-Learning Algorithm Process:
    <br/>
 | (State Name) | **v_bins** | **p_bins** | **t_bins** | action_1(a_1) | action_2(a_2) | action_3(a_3) | action_4(a_4) | action_5(a_5)
 | :---: | :--: | :--: | :--: | :--: | :---: | :---: | :---: | :---:
-S<sub>11</sub> | **-5** | **0.3** | **0.13** | Q(S<sub>11</sub>,a_1) | Q(S<sub>11</sub>,a_2) | Q(S<sub>11</sub>,a_3) | Q(S<sub>11</sub>,a_4)  | Q(S<sub>11</sub>,a_5)
-S<sub>12</sub> | Content Cell  | Content Cell | Content Cell | Content Cell  | Content Cell | Content Cell 
+S<sub>11(-5,0.95)</sub> | **-5** | **0.3** | **0.95** | Q(S<sub>11(-5,0.95)</sub>,a_1) | Q(S<sub>11(-5,0.95)</sub>,a_2) | Q(S<sub>11(-5,0.95)</sub>,a_3) | Q(S<sub>11(-5,0.95)</sub>,a_4)  | Q(S<sub>11(-5,0.95)</sub>, a_5)
+S<sub>11(-1,0.95)</sub> | **-1** | **0.3** | **0.95** | Q(S<sub>11(-1,0.95)</sub>,a_1) | Q(S<sub>11(-1,0.95)</sub>,a_2) | Q(S<sub>11(-1,0.95)</sub>,a_3) | Q(S<sub>11(-1,0.95)</sub>,a_4)  | Q(S<sub>11(-1,0.95)</sub>,a_5)
+S<sub>11(0,0.95)</sub> | **0** | **0.3** | **0.95** | Q(S<sub>11(0,0.95)</sub>,a_1) | Q(S<sub>11(0,0.95)</sub>,a_2) | Q(S<sub>11(0,0.95)</sub>,a_3) | Q(S<sub>11(0,0.95)</sub>,a_4)  | Q(S<sub>11(0,0.95)</sub>,a_5)
+S<sub>11(1,0.95)</sub> | **1** | **0.3** | **0.95** | Q(S<sub>11(1,0.95)</sub>,a_1) | Q(S<sub>11(1,0.95)</sub>,a_2) | Q(S<sub>11(1,0.95)</sub>,a_3) | Q(S<sub>11(1,0.95)</sub>,a_4)  | Q(S<sub>11(1,0.95)</sub>,a_5)
+S<sub>11(5,0.95)</sub> | **5** | **0.3** | **0.95** | Q(S<sub>11(5,0.95)</sub>,a_1) | Q(S<sub>11(5,0.95)</sub>,a_2) | Q(S<sub>11(5,0.95)</sub>,a_3) | Q(S<sub>11(5,0.95)</sub>,a_4)  | Q(S<sub>11(5,0.95)</sub>,a_5)
 
 
 
