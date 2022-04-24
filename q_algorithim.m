@@ -1,34 +1,35 @@
-%%
-s= ([v_bins p_bins t_bins])';
-pwm = action - 2727.0447;
-action_1 = pwm + 25;
-action_2 = pwm + 50;
-action_3 = pwm - 25;
-action_4 = pwm - 50;
-actions = [action_1 action_2 action_3 action_4];
-time_horizon = 10,000; 
-state_size= perm(length(v_bins,p_bins,t_bins));
-action_size = length(action); 
-Q=random(state_size, action_size);
+%% Code for Q leaarning Ball and Pipe System
+s= ([v_bins p_bins t_bins])';%Creating bins for the state 
+pwm = action - 2727.0447;%set pwm
+action_1 = pwm + 25; %action to slightly increase pwm
+action_2 = pwm + 50; %action to increase pwm
+action_3 = pwm - 25; %action to slightly decrease pwm
+action_4 = pwm - 50; %action to decrease pwm
+actions = [action_1 action_2 action_3 action_4]; %create an array with action values
+time_horizon = 10,000; %set horizon for training
+state_size= perm(length(v_bins,p_bins,t_bins));%Returns a matrix containing all permutations of the state length. 
+action_size = length(action); %create action size by measuring action length
+Q=random(state_size, action_size); %
 s = sample_state();
-for i=1:1000
+for i=1:1000 %1000 episode training model
     for j=1:(time_horizon) %actual time for the training to happen 
-        a=get_actions(Q,s)
-        s' = [x,y,~];
-        r= get_reward;
-        Q= bellmans;
-        s= s';
+        a=get_actions(Q,s)%use action command based on q value and state
+        s' = [x,y,~];%set next state
+        r= get_reward;%use get reward function
+        discount_factor = .9; %set discount factor
+        learning_rate = .1; %set learning rate
+        Q= Bellmans(s',s, a, discount_factor, learning_rate;%call bellmans equation
+        s= s';%set next state as current state
     end
 end
 %%
-function q_new = Bellman(s, s_previous, actions, discount_factor, learning_rate)
-idx = s_previous;
-idx_prime = s;
-Max = max(Q(idx,:));
-q_old = q(idx,actions);
-%q_prime = q(idx_prime,action);
-q_new = q_old + learning_rate * (get_reward(s,s_previous, actions) + discount_factor + Max - q_old);  
-%q_old = q_new; %set state we just caclulated as old state for q table to re run
+%This section contains the Bellmans equation, which is used to calculate the most optimum q value on the table for the current state
+function q_new = Bellman(s, s_previous, actions, discount_factor, learning_rate)%output data as new function bellman, with inputs of current state, previous state. actions, discount_factor, and learning rate
+idx = s_previous; %set index for state as last 
+action_idx = actions; %set index for current action
+Max = max(Q(idx,:)); %find max value on q table for given state, to find action
+q_old = q(idx,action_idx); %set old q value to last state and action
+q_new = q_old + learning_rate * (get_reward(s,s_previous, actions) + discount_factor + Max - q_old); %bellmans equation with our given inputs
 end
 
 %%
