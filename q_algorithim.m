@@ -41,18 +41,26 @@ end
 end
 
 %%
+% This section will create the simualtion or the environment in which the agent will run through
+% We will use a general trasnfer fucntion that describes environment of the ball and pipe system
 sys = zpk([],[0 -7.9239],5.05); % The final transfer function is G(s)= 5.05/(s(s+7.9239).
 s_s = ss(sys); % calculating the state space for the lsim function. 
-% a = actions - 2730; 
-y = s_s.C+s_s.D;
-x = (1./s_s.C).*(y - s_s.D);
+a = actions - 2730; %pwm values must refelect the actual values being inserted 
+ % ss comand above gives A,B,C,D values that will be used in the lsim fucntion 
+ %particularly to calculate x 
+y = s_s.C+s_s.D; 
 [x,y,~] = lsim(s_s,a,t,x);
 
-%%  action 
-function random_action = get_action(Q,s)
-idx=index_function(s);
-action=actions(max(Q(idx)));
+%%  
+%This fucntion will determine what acito tnhe agent will take in relation to what state it is
+%in and the distance from the terminal state
+function random_action = get_action(Q,s)% takes in arguments from the Q table and the state
+idx=index_function(s);%grabs the index in relation to what state is in in per the indexing fucntion
+action=actions(max(Q(idx))); %action is then determined by aquiring the maximimum q-value from the q-table 
 e = 0.1; 
+% This loop will allow the agent to explore by first creating a random list of number between
+% 0 and 1. if e is less then one of the random number of the array, then the agent will take a random action 
+% and will overwrite the action determined above. 
  if e < random(0,1)
      action= random(actions);
  end 
@@ -93,7 +101,7 @@ end
 %This is the fist step to this algorthim where the continous states 
 %from the read file 
 function [binned_state,bin_indx] = binning(cont_state)
-p = d * (10e-3); 
+p = d * (10e-3); % this will convert the mm reading in to a m reading for distance
 v = (p'-p)./sample_rate; %How would we save two different time stamps and positions
 target = .317;
 cont_state = [v t p]; 
