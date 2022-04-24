@@ -173,8 +173,9 @@ target --> ball position
 
 
 # Next Steps
-Simulation was not complete
-Q-algorithm with different learning rates 
+  The next steps to this project is to iterate through the simulations and acquire a q-table and measure the times for values to converge. Thus, various simulation will be completed where certain parameters of the bellman’s. Parameters that will be fixed for future simulation will be the learning rate, this will tell the agent whether the action to be taken should be random or to take the action that will reap the best reward. If the learning rate is set to a low value, then actions taken will be more random then measured. On the other hand, if the learning rate is high, then the actions taken will stick to the protocol or values in that will reap the best reward. Ideally, the starting simulation will have a low learning rate in order to drive the algorithm to explore other options and thus having the chance to discover a certain path that will lead faster to the terminal state.
+  Another parameter that will be changed is the discount factor, this will then lead to the agent to determine the value of future rewards. Setting this value to zero will lead to decisions that will only reap an immediate reward and thus disregarding future rewards. On the other hand, if the value is set ot 1, then it will assume its actions as the sum of all future rewards. Values between zero and one will be tested in the future to determine which values will lead to a faster convergence to terminal state. After a optimal q-table is implemented, the final step is to add this control or q-algorithm into the feedback loop of the real_world code. One then needs to configure the code to pass in the arguments from the read.m code and use the data to allow the algorithm to determine which state it is in through the binning, then sample_state and then finally indexing_function. Other work in the future is to implement then deep q-learning which replaces the regular Q-table with a neural network. Instead mapping state to action, we would map the input states to action,Q-vlaue pairs. Thus there consists of 2 neural networks which has the main network and target network where ate every N-steps, the weight from the main network are copied to the target network.
+
 
 # Contact
 - Hiep Tran - tranhi75@students.rowan.edu
