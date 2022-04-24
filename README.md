@@ -42,7 +42,7 @@ position of the ball
 
 
 
-# Theory of Control Method
+# Theory of Control Method (Q-Learning)
 Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximuze the value of Q by using a Q-table to find the best solution.<br/>
 **Some important terms:** <br/>
 *Agents* - This is the entity that will explore the environment and makes decisions according to the Q-Table. In this project the Agent is the ball.
@@ -76,7 +76,7 @@ The order of the Q-Learning Algorithm Process:
 
 # Guide to Use the Code
 Floating Ball Apparatus Spec Sheet- [Spec Sheet](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/SCFBA%20Specification%20Sheet.pdf)<br/>
-[q_algorithim](https://github.com/Jenny-Hoang/ball_and_pipe_control/commit/795b4836eecb71e963c6cdd3a1d1df821d32a5ec) <br/>
+[q_algorithim](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/q_algorithim.m) <br/>
 To control the ball and pipe system 4 different files were used:<br/>
 [ir2y.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/ir2y.m)
 , [read_data.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/read_data.m)
@@ -85,6 +85,8 @@ To control the ball and pipe system 4 different files were used:<br/>
 
 #### q-algorithim
 Built from scratch and has multiple parts
+
+
 
 #### ir2y code
 * Added the parameters (ir_bottom and ir_top) values 
@@ -167,9 +169,15 @@ read data and the set_pwm and real world code
 then that gets put into the q-algorithim
 
 
+
+Put in the binning states located in Q-algorithm
+target --> ball position
+10 measurements --> 1 terminal position = target = desired height for the ball = (needed to measure different ball postions)
+
+
 # Next Steps
-
-
+Simulation was not complete
+Q-algorithm with different learning rates 
 
 # Contact
 - Hiep Tran - tranhi75@students.rowan.edu
@@ -179,7 +187,7 @@ then that gets put into the q-algorithim
 - Jenny Hoang - hoangj87@students.rowan.edu
 
 
-# Acknowledgments
+# Acknowledgments/Resources
 The background theory of Q-Learning were from the following sources: <br/>
 [Source 1](https://gotensor.com/2019/10/02/q-learning-an-introduction-through-a-simple-table-based-implementation-with-learning-rate-discount-factor-and-exploration/)
 , [Source 2](https://towardsdatascience.com/a-beginners-guide-to-q-learning-c3e2a30a653c)
