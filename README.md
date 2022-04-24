@@ -106,10 +106,9 @@ k
 Change the COM Port if neccessary under "Connect to Device"
 
 #### set_pwm code
+Type the command set_pwm(device,pwm_value) in the command window. In the real_world code, the device is set to serialport('COM3',19200). Change the COM3 to the correct COM on your device. This command will control the pwm based on the input value of pwm_value that is chosen.  
 
-
-
-##### Functions in Q-algorithm
+#### Functions in Q-algorithm
 1. Binned State Function 
 2. Sample State Function
 3. Indexing Function
