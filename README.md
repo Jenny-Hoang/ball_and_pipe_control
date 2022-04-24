@@ -68,7 +68,7 @@ The order of the Q-Learning Algorithm Process:
 5. Update Q-Table
 
 
-### Q-Table
+### Q-Table (NEED TO FIX)
    (maybe add a picture somehow?) 
 
 
@@ -83,15 +83,15 @@ To control the ball and pipe system 4 different files were used:<br/>
 , [real_world.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 , [set_pwm.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 
-#### q-algorithim
+#### q-algorithim (NEED TO FIX)
 Built from scratch and has multiple parts
 
 
 
 #### ir2y code
-Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function.  
-#### read_data code
+Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function. Input ir is the length from the top of the pipe to the ball. Output y is the length from the bottom of the pipe to the ball. y_top is the length of the pipe. In order to calculate the length from the bottom of the pipe to the ball, using the ir_top value and ir value to calculate the distance percentage of the ball. Hence, using the length of the pipe, the distance from the bottom of the pipe to the ball is calculated. 
 
+#### read_data code
 * Ask and take data from device as a string value
 * Turn data from a string to a double and then extract the data for the different values
 * All the data is seperated by a special character so extracting the value for each value is easy
@@ -119,7 +119,7 @@ This code gives the PWM value set as string for action to send it to the ball an
  
 
 
-## Notes:
+## Notes (NEED TO FIX)
 1. device manager<br/>
   check what com port it is on (Possibly COM3)<br/> 
   PuTTY <br/>
