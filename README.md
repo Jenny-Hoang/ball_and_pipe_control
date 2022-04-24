@@ -62,12 +62,10 @@ Control Method chosen was the **Q-Learning** which is a type of reinforcement le
 
 The order of the Q-Learning Algorithm Process:
 1. Initialize Q-Table 
-Generate the Q-table using the Bellman Equation with the reward of 10 at terminal state and  -1 for other state. The learning rate adn discount fator value was range from 0 to 1. The Q-table will have the index value correspond with the values of t_bins, v_pins, and p_pins. 
-3. Choose an Action
-After obtaining the index value of the Q-table, the
-5. Perform and Action
-6. Measure Reward
-7. Update Q-Table
+2. Choose an Action
+3  Perform and Action
+4. Measure Reward
+5. Update Q-Table
 
 
 ### Q-Table
@@ -91,9 +89,7 @@ Built from scratch and has multiple parts
 
 
 #### ir2y code
-* Added the parameters (ir_bottom and ir_top) values 
-* Added the portion under "Bound the IR reading and send error message" and under "Set"
-
+Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function.  
 #### read_data code
 
 * Ask and take data from device as a string value
