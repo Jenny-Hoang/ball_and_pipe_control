@@ -109,15 +109,15 @@ Change the COM Port if neccessary under "Connect to Device"
 
 
 
-##### Steps
-1. Binned State
-2. Sample State
+##### Functions in Q-algorithm
+1. Binned State Function 
+2. Sample State Function
 3. Indexing Function
-4. Get Action
-5. Simulation Step
-6. Get Reward
+4. Is_done Function 
+5. Ramdom Action Function
+6. Reward Function 
 7. Bellmans Equation
-8. 
+ 
 
 
 ## Notes:
