@@ -30,21 +30,24 @@ q_old = q(idx,actions);
 q_new = q_old + learning_rate * (get_reward(s,s_previous, actions) + discount_factor + Max - q_old);  
 %q_old = q_new; %set state we just caclulated as old state for q table to re run
 end
+
 %%
 function reward = get_reward(s,a,is_done)
-if is_done == true
-    r=10; %Agent is at the desired value. 
+if is_done == true % taking the condition from the is_done function to determine if the agent is at the terminal state. 
+    r=10;   %Agent is at the desired value. 
 else 
-    r=-1; %Agent is not at the desired value
+    r=-1;    %Agent is not at the desired value
 end
 end
+
 %%
-sys = zpk([],[0 -7.9239],5.05);
-s_s = ss(sys); 
+sys = zpk([],[0 -7.9239],5.05); % The final transfer function is G(s)= 5.05/(s(s+7.9239).
+s_s = ss(sys); % calculating the state space for the lsim function. 
 % a = actions - 2730; 
 y = s_s.C+s_s.D;
 x = (1./s_s.C).*(y - s_s.D);
 [x,y,~] = lsim(s_s,a,t,x);
+
 %%  action 
 function random_action = get_action(Q,s)
 idx=index_function(s);
@@ -55,10 +58,20 @@ e = 0.1;
  end 
 end 
 
+%%
+function is_done = check_is_done(v_next,p_next,t_next)
+if p_next==t_next && v_next==0  % if the next position = target position and the velocity is 0 since we are at the desired position
+    is_done = true;             % isdone function to make the learning stop and reach the terminal state.
+else
+    is_done = false;            % if the next position is different from target position and the velocity is not 0, the ball is not at final terminal state. 
+end 
+
+end 
 %% index_function
 function index_fucntion = index(v_index,p_index,t_index)  % Get the index of of each states so that it can get access to the Q table.
-    index = p_index + length(p_bins)*(v_index-1)+length(p_bins)*length(v_bins)*(t_index-1);
-end 
+    index = p_index + length(p_bins)*(v_index-1)+length(p_bins)*length(v_bins)*(t_index-1); % This index value will return the state of the q-table corresponding to the action that the agent should take. 
+end                                                                                         % The values of v_pins, t_bins, and p_bins are the index from the q-table. 
+
 %% 
 %Function sample_state grabs the sample of each vector passed in and find
 %the state and concatenate three vectors, into one vector which is one a
