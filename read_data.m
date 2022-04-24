@@ -15,13 +15,15 @@ function [distance,pwm,target,deadpan] = read_data(device)
 % Modified by: Antonio Silva
 
 %% Ask nicely for data
-write(device,"s","string");
+write(device,"s","string");%send "s" to device which causes device to produce a set of values from ball and pipe system 
 %% Read data
-data = read(device,20,"string");
+data = read(device,20,"string"); %read 20 string values from device and call it data, device only sends 20 string values before it repeats
 %% Translate
-distance   = str2double(extractBetween(data,2,5));
-pwm = str2double(extractBetween(data,7,10));
-target     = str2double(extractBetween(data,12,15));
-deadpan    = str2double(extractBetween(data,17,20));
+%extract and convert to double for each specific data type
+%different data is seperated by special characters
+distance   = str2double(extractBetween(data,2,5)); %4 values to distance
+pwm        = str2double(extractBetween(data,7,10)); %4 values for pwm
+target     = str2double(extractBetween(data,12,15)); %4 values for target value
+deadpan    = str2double(extractBetween(data,17,20)); %4 values for deadpan value
 
 end
