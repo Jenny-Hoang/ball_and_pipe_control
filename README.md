@@ -84,9 +84,16 @@ To control the ball and pipe system 4 different files were used:<br/>
 , [set_pwm.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 
 #### q-algorithim (NEED TO FIX)
-Built from scratch and has multiple parts
+Built from scratch and has multiple parts. (TYPE MORE IN THIS PART)
 
-
+##### Functions in Q-algorithm
+1. Binned State Function 
+2. Sample State Function
+3. Indexing Function
+4. Is_done Function 
+5. Ramdom Action Function
+6. Reward Function 
+7. Bellmans Equation
 
 #### ir2y code
 Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function. Input ir is the length from the top of the pipe to the ball. Output y is the length from the bottom of the pipe to the ball. y_top is the length of the pipe. In order to calculate the length from the bottom of the pipe to the ball, using the ir_top value and ir value to calculate the distance percentage of the ball. Hence, using the length of the pipe, the distance from the bottom of the pipe to the ball is calculated. 
@@ -108,14 +115,7 @@ It is important to run some of the section in real world to be able to control t
 #### set_pwm code
 This code gives the PWM value set as string for action to send it to the ball and pip system per the spec sheet. The first step in taking this code was to first bin the PW values to make sure that values between 0 and 4095 were being inserted into the system. This then assures that an value inserted above 4095 is bounded to 4095 and any value inserted below 0 is bounded to 0. After this is complete, one then need to format the PWM values in order to send said values to the system. This is done first using the sprintf command that writes formatted data to a string or character vectors which in this as is characters. It is then desired to 0 pad the PWM values four zeros after the decimal point. Since the system takes in the format 'PXXXX' the character P will be concatenated with the PWM value. This code cna then be ra in the command window using 'set_pwm(device,#)' which will allow you send pwm vlaues to control the ball and pipe system. 
 
-#### Functions in Q-algorithm
-1. Binned State Function 
-2. Sample State Function
-3. Indexing Function
-4. Is_done Function 
-5. Ramdom Action Function
-6. Reward Function 
-7. Bellmans Equation
+
  
 
 
