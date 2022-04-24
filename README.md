@@ -44,20 +44,22 @@ position of the ball
 
 # Theory of Control Method (Q-Learning)
 Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximuze the value of Q by using a Q-table to find the best solution.<br/>
-**Some important terms:** <br/>
-*Agents* - This is the entity that will explore the environment and makes decisions according to the Q-Table. In this project the Agent is the ball.
+**Some important terms:** 
+<br/>
+<br/>
+  - *Agents* - This is the entity that will explore the environment and makes decisions according to the Q-Table. In this project the Agent is the ball.
 <br/>
 
-*State* - This is where the location of where the object is at. In this project, the pipe is divided into 5 sections and in each section there are 2 subsections which is the state.
+  - *State* - This is where the location of where the object is at. In this project, the pipe is divided into 5 sections and in each section there are 2 subsections which is the state.
 <br/>
 
-*Action* - Depending on the state it is in, a specific action will be made.
+  - *Action* - Depending on the state it is in, a specific action will be made.
 <br/>
 
-*Rewards* - Depending on the state it is in, it will lead to a positive or negative reward.
+  - *Rewards* - Depending on the state it is in, it will lead to a positive or negative reward.
 <br/>
 
-*Environment* - The system in which the agent will explore.
+  - *Environment* - The system in which the agent will explore.
 <br/>
 
 The order of the Q-Learning Algorithm Process:
@@ -70,9 +72,14 @@ The order of the Q-Learning Algorithm Process:
 
 ### Q-Table (NEED TO FIX)
    (maybe add a picture somehow?) 
+   <br/>
+| (State Name) | **v_bins** | **p_bins** | **t_bins** | action_1(a_1) | action_2(a_2) | action_3(a_3) | action_4(a_4) | action_5(a_5)
+| :---: | :--: | :--: | :--: | :--: | :---: | :---: | :---: | :---:
+S<sub>11</sub> | **-5** | **0.3** | **0.13** | Q(S<sub>11</sub>,a_1) | Q(S<sub>11</sub>,a_2) | Q(S<sub>11</sub>,a_3) | Q(S<sub>11</sub>,a_4)  | Q(S<sub>11</sub>,a_5)
+S<sub>12</sub> | Content Cell  | Content Cell | Content Cell | Content Cell  | Content Cell | Content Cell 
 
 
-  
+
 
 # Guide to Use the Code
 Floating Ball Apparatus Spec Sheet- [Spec Sheet](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/SCFBA%20Specification%20Sheet.pdf)<br/>
