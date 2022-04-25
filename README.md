@@ -143,10 +143,7 @@ Built from scratch and has multiple parts. (TYPE MORE IN THIS PART)
 Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function. Input ir is the length from the top of the pipe to the ball. Output y is the length from the bottom of the pipe to the ball. y_top is the length of the pipe. In order to calculate the length from the bottom of the pipe to the ball, using the ir_top value and ir value to calculate the distance percentage of the ball. Hence, using the length of the pipe, the distance from the bottom of the pipe to the ball is calculated. 
 
 #### read_data code
-* Ask and take data from device as a string value
-* Turn data from a string to a double and then extract the data for the different values
-* All the data is seperated by a special character so extracting the value for each value is easy
-* This gives us the value of the distance, pwm, deadpan, and target
+The read data function is an important feature in the ball and pipe system that allows the system to get information from the system. The fucntion works by first asking for data from the system. To achieve this you have to send the letter "s" to the system. The system in return will give a 20 value string value. These 20 lines will contain all the values of the distance, pwm, deadpan, and target. The values are in a string value and are seperated by special characters. Next we turned the data from a string to a double and then extracted the data for the different values adn set them to their own variables. 
 
 <!-- distance skip : 2345
 pwm skip 6(,) 78910
