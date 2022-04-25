@@ -54,8 +54,8 @@ y = s_s.C+s_s.D;
 [x,y,~] = lsim(s_s,a,t,x);
 
 %%  
-%This fucntion will determine what acito tnhe agent will take in relation to what state it is
-%in and the distance from the terminal state
+%This function will determine what action the agent will take in relation to what state 
+%it is in and the distance it is from the terminal state
 function random_action = get_action(Q,s)% takes in arguments from the Q table and the state
 idx=index_function(s);%grabs the index in relation to what state is in in per the indexing fucntion
 action=actions(max(Q(idx))); %action is then determined by aquiring the maximimum q-value from the q-table 
