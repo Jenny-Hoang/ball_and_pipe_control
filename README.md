@@ -65,7 +65,7 @@ Control Method chosen was the **Q-Learning** which is a type of reinforcement le
 The order of the Q-Learning Algorithm Process:
 1. Initialize Q-Table 
 2. Choose an Action
-3  Perform and Action
+3. Perform and Action
 4. Measure Reward
 5. Update Q-Table
 
@@ -77,20 +77,24 @@ The state name is
    <br/>
 | (State Name) | **v_bins** | **p_bins** | **t_bins** | action_1(a_1) | action_2(a_2) | action_3(a_3) | action_4(a_4) | action_5(a_5)
 | :---: | :--: | :--: | :--: | :--: | :---: | :---: | :---: | :---:
-S<sub>11(-5,0.95)</sub> | **-5** | **0.3** | **0.95** | Q(S<sub>11(-5,0.95)</sub>,a_1) | Q(S<sub>11(-5,0.95)</sub>,a_2) | Q(S<sub>11(-5,0.95)</sub>,a_3) | Q(S<sub>11(-5,0.95)</sub>,a_4)  | Q(S<sub>11(-5,0.95)</sub>, a_5)
+S<sub>11(-5,0.95)</sub> | **-5** | **0.3** | **0.95** | Q(S<sub>11(-5,0.95)</sub>,a_1) | Q(S<sub>11(-5,0.95)</sub>,a_2) | Q(S<sub>11(-5,0.95)</sub>,a_3) | Q(S<sub>11(-5,0.95)</sub>,a_4)  | Q(S<sub>11(-5,.95)</sub>, a_5)
 S<sub>11(-1,0.95)</sub> | **-1** | **0.3** | **0.95** | Q(S<sub>11(-1,0.95)</sub>,a_1) | Q(S<sub>11(-1,0.95)</sub>,a_2) | Q(S<sub>11(-1,0.95)</sub>,a_3) | Q(S<sub>11(-1,0.95)</sub>,a_4)  | Q(S<sub>11(-1,0.95)</sub>,a_5)
 S<sub>11(0,0.95)</sub> | **0** | **0.3** | **0.95** | Q(S<sub>11(0,0.95)</sub>,a_1) | Q(S<sub>11(0,0.95)</sub>,a_2) | Q(S<sub>11(0,0.95)</sub>,a_3) | Q(S<sub>11(0,0.95)</sub>,a_4)  | Q(S<sub>11(0,0.95)</sub>,a_5)
 S<sub>11(1,0.95)</sub> | **1** | **0.3** | **0.95** | Q(S<sub>11(1,0.95)</sub>,a_1) | Q(S<sub>11(1,0.95)</sub>,a_2) | Q(S<sub>11(1,0.95)</sub>,a_3) | Q(S<sub>11(1,0.95)</sub>,a_4)  | Q(S<sub>11(1,0.95)</sub>,a_5)
 S<sub>11(5,0.95)</sub> | **5** | **0.3** | **0.95** | Q(S<sub>11(5,0.95)</sub>,a_1) | Q(S<sub>11(5,0.95)</sub>,a_2) | Q(S<sub>11(5,0.95)</sub>,a_3) | Q(S<sub>11(5,0.95)</sub>,a_4)  | Q(S<sub>11(5,0.95)</sub>,a_5)
-Example of Next State is Below| ... | 0.3 | ...| ... | ...| ... | ...| ...
+**An** | **Example** | **of** | **the** | **Next** | **State** | **is** | **Shown** | **Below** |
 S<sub>12(-5,0.8)</sub> | **-5** | **0.3** | **0.8** | Q(S<sub>12(-5,0.8)</sub>,a_1) | Q(S<sub>12(-5,0.8)</sub>,a_2) | Q(S<sub>12(-5,0.8)</sub>,a_3) | Q(S<sub>12(-5,0.8)</sub>,a_4)  | Q(S<sub>12(-5,0.8)</sub>, a_5)
 S<sub>12(-1,0.8)</sub> | **-1** | **0.3** | **0.8** | Q(S<sub>12(-1,0.8)</sub>,a_1) | Q(S<sub>12(-1,0.8)</sub>,a_2) | Q(S<sub>12(-1,0.8)</sub>,a_3) | Q(S<sub>12(-1,0.8))</sub>,a_4)  | Q(S<sub>12(-1,0.8)</sub>,a_5)
 S<sub>12(0,0.8)</sub> | **0** | **0.3** | **0.8** | Q(S<sub>12(0,0.8)</sub>,a_1) | Q(S<sub>12(0,0.8)</sub>,a_2) | Q(S<sub>12(0,0.8)</sub>,a_3) | Q(S<sub>12(0,0.8)</sub>,a_4)  | Q(S<sub>12(0,0.95)</sub>,a_5)
 S<sub>12(1,0.8)</sub> | **1** | **0.3** | **0.8** | Q(S<sub>12(1,0.8)</sub>,a_1) | Q(S<sub>12(1,0.8)</sub>,a_2) | Q(S<sub>12(1,0.8)</sub>,a_3) | Q(S<sub>12(1,0.8)</sub>,a_4)  | Q(S<sub>12(1,0.8)</sub>,a_5)
 S<sub>12(5,0.8)</sub> | **5** | **0.3** | **0.8** | Q(S<sub>12(5,0.8)</sub>,a_1) | Q(S<sub>12(5,0.8)</sub>,a_2) | Q(S<sub>12(5,0.8)</sub>,a_3) | Q(S<sub>12(5,0.8)</sub>,a_4)  | Q(S<sub>12(5,0.8)</sub>,a_5)
-Next State | Repeat above (-5,-1,0,1,5) | 0.3 | Decrease p_bins values for the next 8 states | ... | ...| ... | ...| ...
-Last State is Shown Below | ... | 0.3 | ...| ... | ...| ... | ...| ...
-S<sub>52(-5,0.13)</sub> | ... | 0.3 | ...| ... | ...| ... | ...| ...
+Complete the next 8th States | Repeat above (-5,-1,0,1,5) | 0.3 | Decrease p_bins values for the next 8 states | ... | ...| ... | ...| ...
+**An** | **Example** | **of** | **the** | **Last** | **State** | **is** | **Shown** | **Below** |
+S<sub>52(-5,0.13)</sub> | **-5** | **0.3** | **0.13** | Q(S<sub>52(-5,0.13)</sub>,a_1) | Q(S<sub>52(-5,0.13)</sub>,a_2) | Q(S<sub>52(-5,0.13)</sub>,a_3) | Q(S<sub>52(-5,0.13)</sub>,a_4)  | Q(S<sub>52(-5,.13)</sub>, a_5)
+S<sub>52(-1,0.13)</sub> | **-1** | **0.3** | **0.13** | Q(S<sub>52(-1,0.13)</sub>,a_1) | Q(S<sub>52(-1,0.13)</sub>,a_2) | Q(S<sub>52(-1,0.13)</sub>,a_3) | Q(S<sub>52(-1,0.13)</sub>,a_4)  | Q(S<sub>52(-1,.13)</sub>, a_5)
+S<sub>52(0,0.13)</sub> | **0** | **0.3** | **0.13** | Q(S<sub>52(0,0.13)</sub>,a_1) | Q(S<sub>52(0,0.13)</sub>,a_2) | Q(S<sub>52(0,0.13)</sub>,a_3) | Q(S<sub>52(0,0.13)</sub>,a_4)  | Q(S<sub>52(0,0.13)</sub>, a_5)
+S<sub>52(1,0.13)</sub> | **1** | **0.3** | **0.13** | Q(S<sub>52(1,0.13)</sub>,a_1) | Q(S<sub>52(1,0.13)</sub>,a_2) | Q(S<sub>52(1,0.13)</sub>,a_3) | Q(S<sub>52(1,0.13)</sub>,a_4)  | Q(S<sub>52(1,0.13)</sub>, a_5)
+S<sub>52(5,0.13)</sub> | **5** | **0.3** | **0.13** | Q(S<sub>52(5,0.13)</sub>,a_1) | Q(S<sub>52(5,0.13)</sub>,a_2) | Q(S<sub>52(5,0.13)</sub>,a_3) | Q(S<sub>52(5,0.13)</sub>,a_4)  | Q(S<sub>52(5,0.13)</sub>, a_5)
 
 
 # Guide to Use the Code
