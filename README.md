@@ -43,7 +43,9 @@ position of the ball
 
 
 # Theory of Control Method (Q-Learning)
-Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximuze the value of Q by using a Q-table to find the best solution.<br/>
+Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximize the value of Q by using a Q-table to find the best solution which will tell us what action to take depending on the state that it is in. The q-table will update the more it is in the environment and studies its reward. The q-algorithm detailing is known as the Bellmans equation. 
+
+<br/>
 **Some important terms:** 
 <br/>
 <br/>
@@ -68,33 +70,42 @@ The order of the Q-Learning Algorithm Process:
 3. Perform and Action
 4. Measure Reward
 5. Update Q-Table
+   * It will go back to "Choose an Action" if the results achieved are not at the terminal state (target destination)
 
 
-### Q-Table (NEED TO FIX)
-   (maybe add a picture somehow?) 
+### Q-Table
+There are 10 states in total:  S<sub>11</sub>, S<sub>12</sub>, S<sub>21</sub>, S<sub>31</sub>, ..., S<sub>52</sub> (State#)
+<br/>
+Each of these states are combined with different v_bins and p_bins, which means that each of the 10 states will have 5 subsets to be combined with. This is done in code and done by permutation.
+<br/>
+<br/>
+The values of the v_bins, p_bins, and t_bins are as follows:   <br/>
+v_bins = [-5 -1 0 1 5]; <br/>
+t_bins = [.300];<br/>
+p_bins = [.130 .230 .320 .410 .470 .555 .640 .710 .800 .950]; <br/>
    <br/>
-The state name is 
+   The state name in the table below is formatted as S<sub>state#(v_bins,t_bins)</sub> to avoid confusion through the table.
    <br/>
 | (State Name) | **v_bins** | **p_bins** | **t_bins** | action_1(a_1) | action_2(a_2) | action_3(a_3) | action_4(a_4) | action_5(a_5)
 | :---: | :--: | :--: | :--: | :--: | :---: | :---: | :---: | :---:
-S<sub>11(-5,0.95)</sub> | **-5** | **0.3** | **0.95** | Q(S<sub>11(-5,0.95)</sub>,a_1) | Q(S<sub>11(-5,0.95)</sub>,a_2) | Q(S<sub>11(-5,0.95)</sub>,a_3) | Q(S<sub>11(-5,0.95)</sub>,a_4)  | Q(S<sub>11(-5,.95)</sub>, a_5)
-S<sub>11(-1,0.95)</sub> | **-1** | **0.3** | **0.95** | Q(S<sub>11(-1,0.95)</sub>,a_1) | Q(S<sub>11(-1,0.95)</sub>,a_2) | Q(S<sub>11(-1,0.95)</sub>,a_3) | Q(S<sub>11(-1,0.95)</sub>,a_4)  | Q(S<sub>11(-1,0.95)</sub>,a_5)
-S<sub>11(0,0.95)</sub> | **0** | **0.3** | **0.95** | Q(S<sub>11(0,0.95)</sub>,a_1) | Q(S<sub>11(0,0.95)</sub>,a_2) | Q(S<sub>11(0,0.95)</sub>,a_3) | Q(S<sub>11(0,0.95)</sub>,a_4)  | Q(S<sub>11(0,0.95)</sub>,a_5)
-S<sub>11(1,0.95)</sub> | **1** | **0.3** | **0.95** | Q(S<sub>11(1,0.95)</sub>,a_1) | Q(S<sub>11(1,0.95)</sub>,a_2) | Q(S<sub>11(1,0.95)</sub>,a_3) | Q(S<sub>11(1,0.95)</sub>,a_4)  | Q(S<sub>11(1,0.95)</sub>,a_5)
-S<sub>11(5,0.95)</sub> | **5** | **0.3** | **0.95** | Q(S<sub>11(5,0.95)</sub>,a_1) | Q(S<sub>11(5,0.95)</sub>,a_2) | Q(S<sub>11(5,0.95)</sub>,a_3) | Q(S<sub>11(5,0.95)</sub>,a_4)  | Q(S<sub>11(5,0.95)</sub>,a_5)
+S<sub>11(-5,0.95)</sub> | **-5** | **0.3** | **0.95** | Q[S<sub>11(-5,0.95)</sub>,a_1] | Q[S<sub>11(-5,0.95]</sub>,a_2] | Q[S<sub>11(-5,0.95)</sub>,a_3] | Q[S<sub>11(-5,0.95)</sub>,a_4] | Q[S<sub>11(-5,.95)</sub>,a_5]
+S<sub>11(-1,0.95)</sub> | **-1** | **0.3** | **0.95** | Q[S<sub>11(-1,0.95)</sub>,a_1] | Q[S<sub>11[-1,0.95]</sub>,a_2] | Q[S<sub>11(-1,0.95)</sub>,a_3] | Q[S<sub>11(-1,0.95)</sub>,a_4]  | Q[S<sub>11(-1,0.95)</sub>,a_5]
+S<sub>11(0,0.95)</sub> | **0** | **0.3** | **0.95** | Q[S<sub>11(0,0.95)</sub>,a_1] | Q[S<sub>11(0,0.95)</sub>,a_2] | Q[S<sub>11(0,0.95)</sub>,a_3] | Q[S<sub>11(0,0.95)</sub>,a_4]  | Q[S<sub>11(0,0.95)</sub>,a_5]
+S<sub>11(1,0.95)</sub> | **1** | **0.3** | **0.95** | Q[S<sub>11(1,0.95]</sub>,a_1] | Q[S<sub>11(1,0.95]</sub>,a_2] | Q[S<sub>11(1,0.95]</sub>,a_3] | Q[S<sub>11(1,0.95)</sub>,a_4]  | Q[S<sub>11(1,0.95)</sub>,a_5]
+S<sub>11(5,0.95)</sub> | **5** | **0.3** | **0.95** | Q[S<sub>11(5,0.95)</sub>,a_1] | Q[S<sub>11(5,0.95)</sub>,a_2] | Q[S<sub>11(5,0.95)</sub>,a_3] | Q[S<sub>11(5,0.95]</sub>,a_4]  | Q[S<sub>11(5,0.95)</sub>,a_5]
 **An** | **Example** | **of** | **the** | **Next** | **State** | **is** | **Shown** | **Below** |
-S<sub>12(-5,0.8)</sub> | **-5** | **0.3** | **0.8** | Q(S<sub>12(-5,0.8)</sub>,a_1) | Q(S<sub>12(-5,0.8)</sub>,a_2) | Q(S<sub>12(-5,0.8)</sub>,a_3) | Q(S<sub>12(-5,0.8)</sub>,a_4)  | Q(S<sub>12(-5,0.8)</sub>, a_5)
-S<sub>12(-1,0.8)</sub> | **-1** | **0.3** | **0.8** | Q(S<sub>12(-1,0.8)</sub>,a_1) | Q(S<sub>12(-1,0.8)</sub>,a_2) | Q(S<sub>12(-1,0.8)</sub>,a_3) | Q(S<sub>12(-1,0.8))</sub>,a_4)  | Q(S<sub>12(-1,0.8)</sub>,a_5)
+S<sub>12(-5,0.8)</sub> | **-5** | **0.3** | **0.8** | Q[S<sub>12(-5,0.8)</sub>,a_1] | Q[S<sub>12(-5,0.8)</sub>,a_2) | Q[S<sub>12(-5,0.8)</sub>,a_3) | Q[S<sub>12(-5,0.8)</sub>,a_4)  | Q[S<sub>12(-5,0.8)</sub>, a_5)
+S<sub>12(-1,0.8)</sub> | **-1** | **0.3** | **0.8** | Q[S<sub>12(-1,0.8)</sub>,a_1) | Q[S<sub>12(-1,0.8)</sub>,a_2) | Q[S<sub>12(-1,0.8)</sub>,a_3) | Q[S<sub>12(-1,0.8))</sub>,a_4)  | Q[S<sub>12(-1,0.8)</sub>,a_5)
 S<sub>12(0,0.8)</sub> | **0** | **0.3** | **0.8** | Q(S<sub>12(0,0.8)</sub>,a_1) | Q(S<sub>12(0,0.8)</sub>,a_2) | Q(S<sub>12(0,0.8)</sub>,a_3) | Q(S<sub>12(0,0.8)</sub>,a_4)  | Q(S<sub>12(0,0.95)</sub>,a_5)
 S<sub>12(1,0.8)</sub> | **1** | **0.3** | **0.8** | Q(S<sub>12(1,0.8)</sub>,a_1) | Q(S<sub>12(1,0.8)</sub>,a_2) | Q(S<sub>12(1,0.8)</sub>,a_3) | Q(S<sub>12(1,0.8)</sub>,a_4)  | Q(S<sub>12(1,0.8)</sub>,a_5)
-S<sub>12(5,0.8)</sub> | **5** | **0.3** | **0.8** | Q(S<sub>12(5,0.8)</sub>,a_1) | Q(S<sub>12(5,0.8)</sub>,a_2) | Q(S<sub>12(5,0.8)</sub>,a_3) | Q(S<sub>12(5,0.8)</sub>,a_4)  | Q(S<sub>12(5,0.8)</sub>,a_5)
+S<sub>12(5,0.8)</sub> | **5** | **0.3** | **0.8** | Q(S<sub>12(5,0.8)</sub>,a_1) | Q(S<sub>12(5,0.8)</sub>,a_2) | Q(S<sub>12(5,0.8)</sub>,a_3) | Q[S<sub>12(5,0.8)</sub>,a_4]  | Q(S<sub>12(5,0.8)</sub>,a_5]
 Complete the next 8th States | Repeat above (-5,-1,0,1,5) | 0.3 | Decrease p_bins values for the next 8 states | ... | ...| ... | ...| ...
 **An** | **Example** | **of** | **the** | **Last** | **State** | **is** | **Shown** | **Below** |
-S<sub>52(-5,0.13)</sub> | **-5** | **0.3** | **0.13** | Q(S<sub>52(-5,0.13)</sub>,a_1) | Q(S<sub>52(-5,0.13)</sub>,a_2) | Q(S<sub>52(-5,0.13)</sub>,a_3) | Q(S<sub>52(-5,0.13)</sub>,a_4)  | Q(S<sub>52(-5,.13)</sub>, a_5)
-S<sub>52(-1,0.13)</sub> | **-1** | **0.3** | **0.13** | Q(S<sub>52(-1,0.13)</sub>,a_1) | Q(S<sub>52(-1,0.13)</sub>,a_2) | Q(S<sub>52(-1,0.13)</sub>,a_3) | Q(S<sub>52(-1,0.13)</sub>,a_4)  | Q(S<sub>52(-1,.13)</sub>, a_5)
-S<sub>52(0,0.13)</sub> | **0** | **0.3** | **0.13** | Q(S<sub>52(0,0.13)</sub>,a_1) | Q(S<sub>52(0,0.13)</sub>,a_2) | Q(S<sub>52(0,0.13)</sub>,a_3) | Q(S<sub>52(0,0.13)</sub>,a_4)  | Q(S<sub>52(0,0.13)</sub>, a_5)
-S<sub>52(1,0.13)</sub> | **1** | **0.3** | **0.13** | Q(S<sub>52(1,0.13)</sub>,a_1) | Q(S<sub>52(1,0.13)</sub>,a_2) | Q(S<sub>52(1,0.13)</sub>,a_3) | Q(S<sub>52(1,0.13)</sub>,a_4)  | Q(S<sub>52(1,0.13)</sub>, a_5)
-S<sub>52(5,0.13)</sub> | **5** | **0.3** | **0.13** | Q(S<sub>52(5,0.13)</sub>,a_1) | Q(S<sub>52(5,0.13)</sub>,a_2) | Q(S<sub>52(5,0.13)</sub>,a_3) | Q(S<sub>52(5,0.13)</sub>,a_4)  | Q(S<sub>52(5,0.13)</sub>, a_5)
+S<sub>52(-5,0.13)</sub> | **-5** | **0.3** | **0.13** | Q(S<sub>52(-5,0.13)</sub>,a_1) | Q(S<sub>52(-5,0.13)</sub>,a_2) | Q(S<sub>52(-5,0.13)</sub>,a_3) | Q(S<sub>52(-5,0.13)</sub>,a_4)  | Q(S<sub>52(-5,.13)</sub>,a_5)
+S<sub>52(-1,0.13)</sub> | **-1** | **0.3** | **0.13** | Q(S<sub>52(-1,0.13)</sub>,a_1) | Q(S<sub>52(-1,0.13)</sub>,a_2) | Q(S<sub>52(-1,0.13)</sub>,a_3) | Q(S<sub>52(-1,0.13)</sub>,a_4)  | Q(S<sub>52(-1,.13)</sub>,a_5)
+S<sub>52(0,0.13)</sub> | **0** | **0.3** | **0.13** | Q(S<sub>52(0,0.13)</sub>,a_1) | Q(S<sub>52(0,0.13)</sub>,a_2) | Q(S<sub>52(0,0.13)</sub>,a_3) | Q(S<sub>52(0,0.13)</sub>,a_4)  | Q(S<sub>52(0,0.13)</sub>,a_5)
+S<sub>52(1,0.13)</sub> | **1** | **0.3** | **0.13** | Q(S<sub>52(1,0.13)</sub>,a_1) | Q(S<sub>52(1,0.13)</sub>,a_2) | Q(S<sub>52(1,0.13)</sub>,a_3) | Q(S<sub>52(1,0.13)</sub>,a_4)  | Q(S<sub>52(1,0.13)</sub>,a_5)
+S<sub>52(5,0.13)</sub> | **5** | **0.3** | **0.13** | Q(S<sub>52(5,0.13)</sub>,a_1) | Q(S<sub>52(5,0.13)</sub>,a_2) | Q(S<sub>52(5,0.13)</sub>,a_3) | Q(S<sub>52(5,0.13)</sub>,a_4)  | Q(S<sub>52(5,0.13)</sub>,a_5)
 
 
 # Guide to Use the Code
@@ -108,6 +119,16 @@ To control the ball and pipe system 4 different files were used:<br/>
 
 #### q-algorithim (NEED TO FIX)
 Built from scratch and has multiple parts. (TYPE MORE IN THIS PART)
+###### Creating Bins for the States
+
+###### Bellmans Equation
+
+###### Reward Function
+
+###### Create Simulation for the Agent to Run Through
+
+######
+
 
 ##### Functions in Q-algorithm
 1. Binned State Function 
