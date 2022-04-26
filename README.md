@@ -119,16 +119,6 @@ To control the ball and pipe system 4 different files were used:<br/>
 
 #### Q-Algorithim
 Built from scratch and contains multiple parts. The algorithm consists of many functions. Initially we set the state and actions. This will be the groundwork for the Q table. The state is comprised by the target, position, and velocity. The learning rate and discount factor are both declared. A random value was assigned for the Q learning to start the algorithm. The q algorithm has 10,000 episodes to train the q table. The episode starts with triggering an action based on the q value and state. Then the next state is declared. The reward is then given by calling the reward function. The bellmans equation, which is the main component of q learning, is then run to determine the next Q value. The state is then set as the next state and the function is ran again. This will repeat mutliple times as the q table gets more and more refined. 
-###### Creating Bins for the States
- 
-###### Bellmans Equation
-
-###### Reward Function
-
-###### Create Simulation for the Agent to Run Through
-
-######
-
 
 ##### Functions in Q-algorithm
 1. Binned State Function 
@@ -138,6 +128,7 @@ Built from scratch and contains multiple parts. The algorithm consists of many f
 5. Ramdom Action Function
 6. Reward Function 
 7. Bellmans Equation
+
 
 #### ir2y code
 Using the command ir2y(x) to calculate the distance from the bottom of the pipe to the ball. x is the ir reading from time flight sensor. X-value  will be calculated by the read_data function. Input ir is the length from the top of the pipe to the ball. Output y is the length from the bottom of the pipe to the ball. y_top is the length of the pipe. In order to calculate the length from the bottom of the pipe to the ball, using the ir_top value and ir value to calculate the distance percentage of the ball. Hence, using the length of the pipe, the distance from the bottom of the pipe to the ball is calculated. 
