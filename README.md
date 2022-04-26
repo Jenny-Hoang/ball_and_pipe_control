@@ -108,6 +108,23 @@ S<sub>52(1,0.13)</sub> | **1** | **0.3** | **0.13** | Q(S<sub>52(1,0.13)</sub>,a
 S<sub>52(5,0.13)</sub> | **5** | **0.3** | **0.13** | Q(S<sub>52(5,0.13)</sub>,a_1) | Q(S<sub>52(5,0.13)</sub>,a_2) | Q(S<sub>52(5,0.13)</sub>,a_3) | Q(S<sub>52(5,0.13)</sub>,a_4)  | Q(S<sub>52(5,0.13)</sub>,a_5)
 
 
+## Getting Started
+Requirements
+1.	Open device manager and take note on what port the COM is on. There are many possibilities but one of the options can be COM3 and this varies depending on the port that the system (SCFBA) is plugged into the computer.
+2.	Download the PuTTY software which is an implementation of SSH, which is useful for network file transfer application and is a terminal emulator program.
+3.	Some important information about the COM port setting is:
+    - Baud: 19200 (speed)
+    - Data bits: 8
+    - Parity: None
+    - Stop bits: 1
+    - Flow control: None
+4. To see and have access to the settings above, have the PuTTY application open and click on “Serial” which is a sub-branch of Connections and the providing information will be given.
+5.	We must obtain all the code that was uploaded on Github. To do this, open the command window or any terminal software and run “git pull origin main” to get the latest changes from the branch named main (or master depending on the name) on the remote named “origin” and this is integrated into the local head branch.
+6.	The “real_world.m” file is the first file to be ran, which connects the input and device into MATLAB’s workspace. There will be an initial burst that will lift the ball and keep it in the air since the pwm value is set to a specific value.
+7.	To change the height of ball, the pwm can be adjusted by entering “action = set_pwm(device,3000)” in the command window. Changing the value of the second parameter will yield different state values. MATLAB will output values of d,p,t,h, where “d” is the distance of ball from the Time of Flight (TOF) sensor (in mm). “p” is the manual pwm potentiometer value and “s” is setpoint potentiometer value. Finally, “h” is the hysteresis potentiometer value.
+8.	Using the PuTTY software, entering the command packet, which is packet type “S”, will request sensor read message and are sent from the PID Controller to the SCFBA. This will be in a single packet response and the SCFBA will be in the following string “:dddd,pppp,ssss,hhhh” and this can be converted to readable format based on the SCFBA spec sheet.
+
+
 # Guide to Use the Code
 Floating Ball Apparatus Spec Sheet- [Spec Sheet](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/SCFBA%20Specification%20Sheet.pdf)<br/>
 [q_algorithim](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/q_algorithim.m) <br/>
@@ -146,49 +163,6 @@ It is important to run some of the section in real world to be able to control t
 
 #### set_pwm code
 This code gives the PWM value set as string for action to send it to the ball and pip system per the spec sheet. The first step in taking this code was to first bin the PW values to make sure that values between 0 and 4095 were being inserted into the system. This then assures that an value inserted above 4095 is bounded to 4095 and any value inserted below 0 is bounded to 0. After this is complete, one then need to format the PWM values in order to send said values to the system. This is done first using the sprintf command that writes formatted data to a string or character vectors which in this as is characters. It is then desired to 0 pad the PWM values four zeros after the decimal point. Since the system takes in the format 'PXXXX' the character P will be concatenated with the PWM value. This code cna then be ra in the command window using 'set_pwm(device,#)' which will allow you send pwm vlaues to control the ball and pipe system. 
-
-
- 
-
-
-## Getting Started
-Requirements
-1.	Open device manager and take note on what port the COM is on. There are many possibilities but one of the options can be COM3 and this varies depending on the port that the system (SCFBA) is plugged into the computer.
-2.	Download the PuTTY software which is an implementation of SSH, which is useful for network file transfer application and is a terminal emulator program.
-3.	Some important information about the COM port setting is:
-    - Baud: 19200 (speed)
-    - Data bits: 8
-    - Parity: None
-    - Stop bits: 1
-    - Flow control: None
-4. To see and have access to the settings above, have the PuTTY application open and click on “Serial” which is a sub-branch of Connections and the providing information will be given.
-5.	We must obtain all the code that was uploaded on Github. To do this, open the command window or any terminal software and run “git pull origin main” to get the latest changes from the branch named main (or master depending on the name) on the remote named “origin” and this is integrated into the local head branch.
-6.	The “real_world.m” file is the first file to be ran, which connects the input and device into MATLAB’s workspace. There will be an initial burst that will lift the ball and keep it in the air since the pwm value is set to a specific value.
-7.	To change the height of ball, the pwm can be adjusted by entering “action = set_pwm(device,3000)” in the command window. Changing the value of the second parameter will yield different state values. MATLAB will output values of d,p,t,h, where “d” is the distance of ball from the Time of Flight (TOF) sensor (in mm). “p” is the manual pwm potentiometer value and “s” is setpoint potentiometer value. Finally, “h” is the hysteresis potentiometer value.
-8.	Using the PuTTY software, entering the command packet, which is packet type “S”, will request sensor read message and are sent from the PID Controller to the SCFBA. This will be in a single packet response and the SCFBA will be in the following string “:dddd,pppp,ssss,hhhh” and this can be converted to readable format based on the SCFBA spec sheet.
-
-  
-time step is from
-
-realword --> sample rate
-target (just make one)
-0 bottom
-0.5 ball in the middle
-
-reward is open ended to how we set it up
-
-
-get the different values such as the height and the velocity of the ball from the ball and pipe system
-the different values are received from using 
-read data and the set_pwm and real world code 
-
-then that gets put into the q-algorithim
-
-
-
-Put in the binning states located in Q-algorithm
-target --> ball position
-10 measurements --> 1 terminal position = target = desired height for the ball = (needed to measure different ball postions)
 
 
 # Next Steps
