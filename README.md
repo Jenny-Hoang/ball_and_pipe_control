@@ -160,15 +160,19 @@ This code gives the PWM value set as string for action to send it to the ball an
  
 
 
-## Notes (NEED TO FIX)
-1. device manager<br/>
-  check what com port it is on (Possibly COM3)<br/> 
-  PuTTY <br/>
-      *Port: COM3<br/>
-      *Speed: 19200 Speed<br/>
-      *Click on "Serial" bubble
-     
-2. Pull the codes down from GITHUB
+## Getting Started (NEED TO FIX)
+Requirements
+1.	Need to open device manager and take note on what port the COM is on. There are many possibilities but one of the options can be COM3 and this varies depending on the port that the system (SCFBA) is plug into the computer.
+2.	Download PuTTY software which is an implementation of SSH and useful for network file transfer application and is a terminal emulator program.
+3.	Some important information about the COM port setting is 
+    - Baud: 19200 (speed)
+    - Data bits: 8
+    - Parity: None
+    - Stop bits: 1
+    - Flow control: None
+    - To see and have access to the settings above, have the PuTTY application open and click on “Serial” which is a sub-branch of Connections and the providing information is given.
+5.	We must obtain all the code that was uploaded on Github so open command window or any terminal software and run “git pull origin main” to get the latest changes from the branch named main (or master depending on the name) on the remote named “origin” and this is integrated into local head branch.
+
 
 3. run the section "device" in "real_world.m" to connect the device and to input that into MATLABs workspace.
 (In 'set_pwm'??)
