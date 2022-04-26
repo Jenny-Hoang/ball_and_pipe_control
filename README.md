@@ -160,7 +160,7 @@ This code gives the PWM value set as string for action to send it to the ball an
  
 
 
-## Getting Started (NEED TO FIX)
+## Getting Started
 Requirements
 1.	Need to open device manager and take note on what port the COM is on. There are many possibilities but one of the options can be COM3 and this varies depending on the port that the system (SCFBA) is plug into the computer.
 2.	Download PuTTY software which is an implementation of SSH and useful for network file transfer application and is a terminal emulator program.
@@ -170,29 +170,13 @@ Requirements
     - Parity: None
     - Stop bits: 1
     - Flow control: None
-    - To see and have access to the settings above, have the PuTTY application open and click on “Serial” which is a sub-branch of Connections and the providing information is given.
+4. To see and have access to the settings above, have the PuTTY application open and click on “Serial” which is a sub-branch of Connections and the providing information is given.
 5.	We must obtain all the code that was uploaded on Github so open command window or any terminal software and run “git pull origin main” to get the latest changes from the branch named main (or master depending on the name) on the remote named “origin” and this is integrated into local head branch.
+6.	We must obtain all the code that was uploaded on Github so open command window or any terminal software and run “git pull origin main” to get the latest changes from the branch named main (or master depending on the name) on the remote named “origin” and this is integrated into local head branch.
+6.	First file to open and run is the “real_world.m” file which connects the input and device into MATLAB’s workspace. There will be an initial burst that will lift the ball and keep it in the air since the pwm value set to a specific value.
+7.	To change the height of ball, the pwm can be adjusted by entering “action = set_pwm(device,3000)” in the command window. Changing the value of the second parameter will yield different state values. MATLAB will output values of d,p,t,h, where “d” is the distance of ball from the Time of Flight (TOF) sensor (in mm). “p” is the manual pwm potentiometer value and “s” is setpoint potentiometer value. Finally, “h” is the hysteresis potentiometer value.
+8.	Using PuTTY software, entering the command packet type “S” will request sensor read message and are sent from the PID Controller to the SCFBA. This will be in a single packet response and the SCFBA will be in the following string “:dddd,pppp,ssss,hhhh” and this can be converted to readable format based on the SCFBA spec sheet.
 
-
-3. run the section "device" in "real_world.m" to connect the device and to input that into MATLABs workspace.
-(In 'set_pwm'??)
-
-4. in the command window put:
-      action = set_pwm (device,3000)
-This will allow the ball to move up and down the pipe
-
-5. keep changing the pwm to get the different state values 
-  MATLAB will give values of d,p,t,h
-    d is the distance from the top of the sensor (cm or mm)
-    p
-    t
-    h
-    
-5. Using Putty??
-    p200
-    press 's' to read the value
-    
-6. s
   
 time step is from
 
