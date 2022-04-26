@@ -117,10 +117,10 @@ To control the ball and pipe system 4 different files were used:<br/>
 , [real_world.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 , [set_pwm.m](https://github.com/Jenny-Hoang/ball_and_pipe_control/blob/main/real_world.m).
 
-#### q-algorithim (NEED TO FIX)
-Built from scratch and has multiple parts. (TYPE MORE IN THIS PART)
+#### Q-Algorithim
+Built from scratch and contains multiple parts. The algorithm consists of many functions. Initially we set the state and actions. This will be the groundwork for the Q table. The state is comprised by the target, position, and velocity. The learning rate and discount factor are both declared. A random value was assigned for the Q learning to start the algorithm. The q algorithm has 10,000 episodes to train the q table. The episode starts with triggering an action based on the q value and state. Then the next state is declared. The reward is then given by calling the reward function. The bellmans equation, which is the main component of q learning, is then run to determine the next Q value. The state is then set as the next state and the function is ran again. This will repeat mutliple times as the q table gets more and more refined. 
 ###### Creating Bins for the States
-
+ 
 ###### Bellmans Equation
 
 ###### Reward Function
