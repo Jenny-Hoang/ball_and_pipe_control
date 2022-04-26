@@ -29,15 +29,28 @@
   </ol>
 </details>
 
-
 <!-- Done -->
-MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
+
+#### Purpose/Problem:
+
+The ball and pipe system consists of a vertically oriented cylinder with a ping pong ball inside, which has a fan at the bottom and a time of flight sensor at the top to measure the height. This project is done by using a PID controller and performing tests using the laptop as an external PID controller. This system helps students use what they have learned in class and creates a hands on experience to apply their knowledge on their control theory into the project.
+
+With the help of the Systems & Control Floating Ball Apparaturs (SCFBA) Specification(Spec) Sheet provided by the Rowan University's student and faculty. This Spec sheet will answer and guide the students in the right place and how to use the apparatus given to them.
+
+
+#### What should be Accomplished:
+The objective or goal of the controller is to MAINTAIN a DESIRED ALTITUDE
+
+MATLAB codes to open serial communication with a ball and pipe system. The objective is to balance the ball at a target altitude. 
+
 
 <br/>
-vtp
+<!-- vtp
 velocity of the ball
 target is height
 position of the ball
+ -->
+
 
 
 
@@ -46,9 +59,9 @@ position of the ball
 Control Method chosen was the **Q-Learning** which is a type of reinforcement learning. The 'Q' in Q-Learning stands for quality. The goal of Q-Learning is to maximize the value of Q by using a Q-table to find the best solution which will tell us what action to take depending on the state that it is in. The q-table will update the more it is in the environment and studies its reward. The q-algorithm detailing is known as the Bellmans equation. 
 
 <br/>
-**Some important terms:** 
+**Some important terms:**
 <br/>
-<br/>
+
   - *Agents* - This is the entity that will explore the environment and makes decisions according to the Q-Table. In this project the Agent is the ball.
 <br/>
 
