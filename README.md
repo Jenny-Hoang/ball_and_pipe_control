@@ -26,7 +26,7 @@
         <li><a href="#set_pwm-code">set_pwm code</a></li>
       </ul>
     </li>
-    <li><a href="next-steps">Next Steps</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
